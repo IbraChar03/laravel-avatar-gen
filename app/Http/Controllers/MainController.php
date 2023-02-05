@@ -16,4 +16,20 @@ class MainController extends Controller
         ];
         return view("pages.home", $data);
     }
+    public function form()
+    {
+        return view("pages.create-avatar");
+    }
+    public function getRequest(Request $request)
+    {
+        $faker = \Faker\Factory::create();
+        $data = $request->all();
+        $avatar = new Avatar();
+        $avatar->nickname = $data["nickname"];
+        $avatar->avatarImg = $data["avatarImg"];
+        $avatar->email = $data["email"];
+        $avatar->code = $faker->md5();
+        $avatar->save();
+        return redirect()->route("home");
+    }
 }
