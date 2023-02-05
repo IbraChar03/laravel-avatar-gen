@@ -32,4 +32,10 @@ class MainController extends Controller
         $avatar->save();
         return redirect()->route("home");
     }
+    public function deleteAvatar($id)
+    {
+        $avatar = Avatar::find($id);
+        $avatar->delete();
+        return redirect()->route("home");
+    }
 }

@@ -11,7 +11,8 @@
     <li>
         <img src="{{$avatar -> avatarImg}}"
             alt="">
-        <span> <strong>Nickname : </strong> {{$avatar -> nickname}}</span> <br> <br>
+        <span> <strong>Nickname : </strong> {{$avatar -> nickname}}</span>
+        <span> <strong><a href="{{route('avatar.delete',['id' => $avatar -> id])}}">DELETE AVATAR </a></span><br> <br>
     </li>
 
     @endforeach
